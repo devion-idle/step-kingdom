@@ -1,7 +1,17 @@
 // simple-todo.js
+
 Tasks = new Mongo.Collection("tasks");
 
 if (Meteor.isClient) {
+  OAuth.initialize('R_b1DUSdIvkFS5Go8Zp3caHxOmE')
+  OAuth.popup('fitbit')
+  .done(function(result) {
+    console.log(result)
+  })
+  .fail(function(err) {
+    console.log("Failed")
+  });
+  
   Template.body.helpers({
     tasks: function() {
       if (Session.get("hideCompleted")) {
@@ -13,6 +23,9 @@ if (Meteor.isClient) {
     }, 
     hideCompleted: function() {
       return Session.get("hideCompleted");
+    },
+    incompleteCount: function() {
+      return Tasks.find({checked: {$ne: true}}).count();
     }
   });
   
