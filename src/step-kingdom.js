@@ -22,10 +22,10 @@ OAuth.initialize('R_b1DUSdIvkFS5Go8Zp3caHxOmE');
 OAuth.popup('fitbit')
     .done(function(result) {
         console.log("Successfully connected to Fitbit.");
-        result.get("/1/user/-/activities/date/" + today() + ".xml")
+        result.get("/1/user/-/activities/date/" + today() + ".json")
             .done(function(response)  {
-                dailySteps = response;
-                console.log(dailySteps);
+                dailySteps = response.summary.steps;
+                $("#dailySteps").text(dailySteps)
             });
     })
     .fail(function(err) {
