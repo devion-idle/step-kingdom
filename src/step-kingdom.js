@@ -1,4 +1,5 @@
 var dailySteps = 0;
+var userId = null;
 
 // Get today's date in YYYY-MM-DD format
 function today() {
@@ -18,14 +19,36 @@ function today() {
     return yyyy + '-' + mm + '-' + dd;
 }
 
+function getSteps(result) {
+    result.get("/1/user/" + userId + "/activities/date/" + today() + ".json")
+        .done(function (response) {
+            dailySteps = response.summary.steps;
+            $("#dailySteps").text(dailySteps);
+        })
+        .fail(function (err) {
+            // TODO: Handle failure to get step count
+        });
+}
+
 OAuth.initialize('R_b1DUSdIvkFS5Go8Zp3caHxOmE');
 OAuth.popup('fitbit')
     .done(function(result) {
         console.log("Successfully connected to Fitbit.");
-        result.get("/1/user/-/activities/date/" + today() + ".json")
-            .done(function(response)  {
-                dailySteps = response.summary.steps;
-                $("#dailySteps").text(dailySteps)
+
+        // Get username and ID
+        result.get("/1/user/-/profile.json")
+            .done(function(response) {
+                userId = response.user.encodedId;
+                $("#username").text(response.user.displayName);
+
+                // Get step count
+                getSteps(result)
+
+                // Set 5 minute refresh on step count
+                setInterval(function() { getSteps(result) }, 300000);
+            })
+            .fail(function(err) {
+               // TODO: Handle failure to get username
             });
     })
     .fail(function(err) {
