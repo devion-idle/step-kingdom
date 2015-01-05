@@ -1,0 +1,27 @@
+0.0.0
+* Manual Step Entry
+* Population Acquisition
+* Population Assignment
+* New Buildings:
+  - Palace
+  - Housing
+* New Upgrades
+  - Daily Step Total Rewards (Palace)
+    1) 500 (0 st)
+    2) 1000 (5K st)
+    3) 2000 (10K st)
+    4) 5000 (20K st)
+    5) 10000 (40K st)
+    6) 15000 (60K st)
+    7) 20000 (80K st)
+    8) 25000 (100K st)
+  - Steps per acquisition decrease
+    1) 100 -> 1
+    2) 100 levels (start level 1)
+    3) 1k st per level (i.e. level 2 = 2k st)
+  - Population per acquisition
+    1) 1 -> inf
+    2) 10k st per level (i.e level 5 = 50k st)
+
+0.1.0
+* Fitbit Step Tracking Option

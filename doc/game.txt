@@ -1,0 +1,31 @@
+Secondary Resources:
+  1) Wheat - Farms
+  2) Clay - Pits
+  3) Wood - Forest 
+  4) Iron - Mines 
+  
+Population:
+  Base: 1 per 100 steps
+
+Buildings:
+  Resource Upgrades: 
+    1) Bakery - Wheat
+    2) Brickyard - Clay
+    3) Sawmill - Wood
+    4) Foundry - Iron
+  Military Upgrades:
+    1) Barracks - Training
+    2) Armoury - Troop Defense
+    3) Blacksmith - Troop Offense
+    4) Wall - City Defense
+  Other Upgrades:
+    1) Palace - Steps
+    2) Housing - Population
+    3) Academy - Buildings
+  Future Buildings:
+    1) Marketplace
+    2) Trading Post
+    3) Workshop
+    4) Treasury
+    5) Warehouse
+    6) Granary
